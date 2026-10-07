@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8f5">
+  <title>Cartwise — Smart Shopping</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#home"><span class="brand-mark">c</span><span>cartwise<span class="brand-dot">.</span></span></a>
+      <div class="store-switch"><span class="store-icon">⌂</span><span><small>SHOPPING AT</small><strong id="activeStoreName">Greenway Market</strong><small class="store-active-address" id="activeStoreAddress"></small></span><span class="chevron">⌄</span></div>
+      <section class="location-panel" aria-labelledby="locationTitle">
+        <div class="location-panel-heading">
+          <span class="location-pin" aria-hidden="true">
+            <svg viewBox="0 0 20 20" width="16" height="16" fill="none"><path d="M16 8.3c0 4.4-6 9.2-6 9.2S4 12.7 4 8.3a6 6 0 1 1 12 0Z" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+          <div><h2 id="locationTitle">Live location</h2><p>Find stores near me</p></div>
+        </div>
+        <button class="location-detect-button" id="detectLocationBtn" type="button"><span aria-hidden="true">⌖</span> Detect my location</button>
+        <p class="location-status" id="locationStatus" role="status" aria-live="polite">Your location is only used to find nearby stores.</p>
+        <div class="nearby-stores" id="nearbyStores" aria-live="polite"></div>
+        <button class="location-demo-button" id="demoLocationBtn" type="button">Use demo location · Kolkata</button>
+      </section>
+      <nav class="nav-main" aria-label="Main navigation">
+        <p class="nav-label">MENU</p>
+        <a class="nav-link active" href="#home"><span class="nav-icon">▦</span>Discover</a>
+        <a class="nav-link" href="#catalogue"><span class="nav-icon">◫</span>All products</a>
+        <a class="nav-link" href="#orders"><span class="nav-icon">◷</span>Order history</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="help-card"><span class="help-icon">✦</span><strong>Need a hand?</strong><p>Our store team is always happy to help.</p><button id="helpBtn" class="text-button">Get assistance <span>↗</span></button></div>
+        <button class="profile"><span class="avatar">JD</span><span><strong>Jamie Davis</strong><small>Guest shopper</small></span><span class="more">···</span></button>
+      </div>
+    </aside>
+
+    <main class="main-content" id="home">
+      <header class="topbar"><button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button><div class="breadcrumb"><span class="breadcrumb-store" id="breadcrumbStore">Greenway Market</span> <span>/</span> <b>Discover</b></div><div class="top-actions"><span class="open-status"><i></i> Store open</span><label class="currency-control"><span>Currency</span><select id="currencySelect" aria-label="Select currency"><option value="USD">USD $</option><option value="EUR">EUR €</option><option value="GBP">GBP £</option><option value="INR">INR ₹</option><option value="CAD">CAD $</option></select></label><button class="icon-button" id="historyBtn" aria-label="Order history">◷</button><button class="cart-pill" id="cartJump"><span>My cart</span><b id="headerCount">0</b></button></div></header>
+      <div class="content-wrap">
+        <section class="hero">
+          <div class="hero-copy"><div class="eyebrow"><span>✦</span> YOUR SMARTER WAY TO SHOP</div><h1>Good choices.<br><em>Better shopping.</em></h1><p>Scan as you shop, skip the checkout line, and discover little things you'll love.</p><button class="primary-button" id="browseBtn">Explore products <span>→</span></button><div class="hero-proof"><span class="proof-icon">⌁</span><span><b>Simple, smart & seamless</b><small>Your whole shop, right here.</small></span></div></div>
+          <div class="hero-art"><div class="art-sun"></div><div class="art-leaf leaf-one">✳</div><div class="art-leaf leaf-two">✳</div><div class="art-bag"><div class="bag-handle"></div><div class="bag-front"><span class="bag-logo">g<span>.</span></span><small>good things<br>inside</small></div><div class="bag-grocery apple">●</div><div class="bag-grocery baguette">▰</div><div class="bag-grocery greens">✿</div></div><div class="art-note"><span>✦</span> Your cart, made clever</div><div class="art-leaf leaf-three">✳</div></div>
+          <div class="hero-pagination"><span class="pagination-active"></span><span></span><span></span></div>
+        </section>
+
+        <section class="feature-row" aria-label="Shopping features"><div class="feature-item"><span class="feature-symbol scan-symbol">▣</span><span><b>Scan as you shop</b><small>No queues, no fuss</small></span></div><div class="feature-item"><span class="feature-symbol">✦</span><span><b>Made for you</b><small>Smarter suggestions</small></span></div><div class="feature-item"><span class="feature-symbol green-symbol">⌁</span><span><b>Know your total</b><small>Always up to date</small></span></div><div class="feature-item"><span class="feature-symbol peach-symbol">♡</span><span><b>Shop with ease</b><small>A little more delightful</small></span></div></section>
+
+        <section class="section-block" id="catalogue"><div class="section-heading"><div><span class="eyebrow muted-eyebrow">A LITTLE OF EVERYTHING</span><h2>Find your favourites</h2></div><a class="view-all" href="#catalogue">View all products <span>→</span></a></div>
+          <div class="category-row" id="categoryRow"><button class="category-chip selected" data-category="All">All products <span>24</span></button><button class="category-chip" data-category="Fresh">Fresh produce</button><button class="category-chip" data-category="Bakery">Bakery</button><button class="category-chip" data-category="Pantry">Pantry staples</button><button class="category-chip" data-category="Drinks">Drinks</button><button class="category-chip" data-category="Dairy">Dairy & eggs</button></div>
+          <div class="product-grid" id="productGrid"></div>
+        </section>
+
+        <section class="bottom-grid"><div class="recommend-card"><div class="recommend-copy"><span class="eyebrow muted-eyebrow">A LITTLE SMARTER</span><h2>Picked just<br>for your basket.</h2><p>Thoughtful finds based on what you're shopping for.</p><button class="outline-button" id="recommendBtn">Show my picks <span>→</span></button></div><div class="recommend-visual"><span class="sparkle sparkle-a">✦</span><span class="sparkle sparkle-b">✳</span><div class="recommend-orb">♡</div><div class="rec-label">good<br>together</div></div></div>
+          <aside class="cart-card" id="cartPanel"><div class="cart-heading"><span class="eyebrow muted-eyebrow">YOUR SHOPPING</span><button class="dots-button" aria-label="Cart options">···</button></div><div class="cart-title-row"><h2>My cart</h2><span class="cart-count" id="cartCountLabel">0 items</span></div><div class="cart-items" id="cartItems"><div class="empty-cart"><span>🛍️</span><b>Your basket is ready</b><small>Add a favourite or try a simulated scan.</small></div></div><div class="cart-summary"><div><span>Subtotal</span><b id="subtotal">$0.00</b></div><div><span>Estimated tax</span><b id="tax">$0.00</b></div><div class="total-row"><span>Total</span><strong id="total">$0.00</strong></div><button class="checkout-button" id="checkoutBtn" disabled>Continue to checkout <span>→</span></button><p class="checkout-note">Taxes are estimated and confirmed at checkout.</p></div></aside></section>
+        <section class="simulation-strip"><div class="simulation-icon">⌗</div><div><strong>Try the smart cart simulation</strong><p>Pick a product and simulate an RFID scan to add it instantly.</p></div><div class="scan-controls"><select id="scanProduct" aria-label="Choose product to scan"></select><button class="scan-button" id="scanBtn"><span>▣</span> Simulate scan</button></div><span class="scan-feedback" id="scanFeedback" aria-live="polite"></span></section>
+        <section class="obstacle-strip" id="obstacleStrip"><div class="obstacle-icon">⌁</div><div><strong>Virtual aisle check</strong><p id="obstacleMessage">Aisle is clear. You're good to go.</p></div><span class="clear-badge" id="obstacleBadge"><i></i> Clear</span><button class="obstacle-toggle" id="obstacleToggle">Simulate obstacle</button></section>
+        <footer><span>© 2025 Cartwise</span><span>Thoughtful shopping, one scan at a time.</span><a href="#home">Back to top ↑</a></footer>
+      </div>
+    </main>
+  </div>
+  <section class="chat-panel" id="chatPanel" role="dialog" aria-modal="false" aria-labelledby="chatTitle" aria-hidden="true" hidden>
+    <header class="chat-header">
+      <span class="chat-brand-mark" aria-hidden="true">✦</span>
+      <div><h2 id="chatTitle">Cartwise AI</h2><p>Your smart shopping assistant</p></div>
+      <button class="chat-close" id="chatCloseBtn" type="button" aria-label="Close Cartwise AI chat">×</button>
+    </header>
+    <div class="chat-messages" id="chatMessages" role="log" aria-live="polite" aria-relevant="additions text">
+      <article class="chat-message assistant-message"><div class="chat-bubble">Hi! I'm your Cartwise shopping assistant. What can I help you find today?</div></article>
+    </div>
+    <div class="chat-quick-prompts" id="chatQuickPrompts" aria-label="Suggested questions">
+      <button type="button" data-chat-prompt="Find something under ₹500">Find under ₹500</button>
+      <button type="button" data-chat-prompt="Build my shopping list">Build my shopping list</button>
+      <button type="button" data-chat-prompt="Suggest healthy products">Healthy products</button>
+      <button type="button" data-chat-prompt="What should I buy?">What should I buy?</button>
+      <button type="button" data-chat-prompt="Compare products">Compare products</button>
+    </div>
+    <form class="chat-form" id="chatForm">
+      <label class="visually-hidden" for="chatInput">Ask Cartwise anything</label>
+      <textarea id="chatInput" name="message" rows="1" maxlength="1200" placeholder="Ask Cartwise anything..." aria-describedby="chatInputHint"></textarea>
+      <button class="chat-send" id="chatSendBtn" type="submit" aria-label="Send message"><span aria-hidden="true">↑</span></button>
+    </form>
+    <p class="chat-input-hint" id="chatInputHint">Enter to send · Shift + Enter for a new line</p>
+  </section>
+  <button class="chat-launcher" id="chatLauncher" type="button" aria-label="Open Cartwise AI shopping assistant" aria-expanded="false" aria-controls="chatPanel"><span aria-hidden="true">✦</span><span>Ask Cartwise</span></button>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog id="checkoutDialog" class="checkout-dialog"><form method="dialog"><button class="dialog-close" aria-label="Close">×</button></form><div class="dialog-mark">✓</div><span class="eyebrow muted-eyebrow">ALL SET</span><h2>Checkout complete!</h2><p id="checkoutMessage">Your order is on its way.</p><div class="invoice-box" id="invoiceBox"></div><button class="primary-button dialog-done" id="doneBtn">Lovely, thanks <span>→</span></button></dialog>
+  <dialog id="ordersDialog" class="checkout-dialog orders-dialog"><form method="dialog"><button class="dialog-close" aria-label="Close">×</button></form><span class="eyebrow muted-eyebrow">YOUR PAST SHOPS</span><h2>Order history</h2><div id="orderHistoryList" class="order-history-list"></div></dialog>
+  <script src="catalogue.js"></script>
+  <script src="catalogue.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
